@@ -4,44 +4,44 @@ import java.util.HashMap;
 
 public class Curriculum {
 
-    private int JavaDeveloperTotalHours;
-    private int AQETotalHours;
+    private int javaDeveloperTotalHours;
+    private int aqeTotalHours;
 
-    static HashMap<String, Integer> JavaDeveloper;
-    static HashMap<String, Integer> AQE;
+    static HashMap<String, Integer> javaDeveloper;
+    static HashMap<String, Integer> aqe;
 
     public Curriculum() {
-        JavaDeveloper = new HashMap<String, Integer>();
-        JavaDeveloper.put("Java", 16);
-        JavaDeveloper.put("JDBC", 24);
-        JavaDeveloper.put("Spring", 16);
+        javaDeveloper = new HashMap<String, Integer>();
+        javaDeveloper.put("Java", 16);
+        javaDeveloper.put("JDBC", 24);
+        javaDeveloper.put("Spring", 16);
 
-        AQE = new HashMap<String, Integer>();
-        AQE.put("Test design", 10);
-        AQE.put("Page Object", 16);
-        AQE.put("Selenium", 16);
+        aqe = new HashMap<String, Integer>();
+        aqe.put("Test design", 10);
+        aqe.put("Page Object", 16);
+        aqe.put("Selenium", 16);
     }
 
     public static HashMap<String, Integer> getJavaDeveloper() {
-        return JavaDeveloper;
+        return javaDeveloper;
     }
 
     public static HashMap<String, Integer> getAQE() {
-        return AQE;
+        return aqe;
     }
 
-    public int JavaDeveloperSumHours() {
-        for (int sum : JavaDeveloper.values()) {
-            JavaDeveloperTotalHours += sum;
+    public int javaDeveloperSumHours() {
+        for (int sum : javaDeveloper.values()) {
+            javaDeveloperTotalHours += sum;
         }
-        return JavaDeveloperTotalHours;
+        return javaDeveloperTotalHours;
     }
 
-    public int AQESumHours() {
-        for (int sum : AQE.values()) {
-            AQETotalHours += sum;
+    public int aqeSumHours() {
+        for (int sum : aqe.values()) {
+            aqeTotalHours += sum;
         }
-        return AQETotalHours;
+        return aqeTotalHours;
     }
 
 }

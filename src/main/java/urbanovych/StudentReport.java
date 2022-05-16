@@ -1,14 +1,18 @@
 package urbanovych;
 
 import java.text.ParseException;
-import java.util.Scanner;
 
-public class Report extends Student {
+import static urbanovych.DateCalculation.setup;
 
-    DateCalculation dateCalculation = new DateCalculation(super.name, super.curriculum, super.startDate);
-    String endDate = dateCalculation.calculateEndDate();
+public class StudentReport extends Student {
 
-    public Report(String name, String curriculum, String startDate) throws ParseException {
+    DateCalculation dateCalculation;
+
+    String reportGenerationDate = setup();
+    int sumOfCurriculum = returnSumOfCurriculum();
+    String endDate = dateCalculation.calculateEndDate(startDate, sumOfCurriculum);
+
+    public StudentReport(String name, String curriculum, String startDate) throws ParseException {
         super(name, curriculum, startDate);
     }
 
@@ -22,20 +26,15 @@ public class Report extends Student {
         System.out.println("Name: " + super.name);
         System.out.println("Working time: 10 from 18");
         System.out.println("Program name: " + super.curriculum);
-        System.out.println("Program duration: " + returnSumOfCurriculumJavaDeveloperOrAQE() + " Hours");
+        System.out.println("Program duration: " + sumOfCurriculum + " Hours");
         System.out.println("Start date: " + super.startDate);
         System.out.println("End Date: " + endDate);
         System.out.println(getWorkingTimeBetweenTwoDates());
-
         System.out.print("\n");
     }
 
-    public String getCalculateEndDate() throws ParseException {
-        return dateCalculation.calculateEndDate();
-    }
-
     public String getWorkingTimeBetweenTwoDates() throws ParseException {
-        return dateCalculation.workingTimeBetweenTwoDates(endDate);
+        return DateCalculation.workingTimeBetweenTwoDates(endDate, reportGenerationDate);
     }
 
     public String getEndDate() {

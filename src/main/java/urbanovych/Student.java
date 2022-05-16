@@ -1,14 +1,10 @@
 package urbanovych;
 
 import java.text.ParseException;
-import java.util.HashMap;
-import java.util.Scanner;
 
 public class Student {
 
     Curriculum curriculumClass = new Curriculum();
-    HashMap<String, Integer> AQE = Curriculum.getAQE();
-    HashMap<String, Integer> JavaDeveloper = Curriculum.getJavaDeveloper();
 
     protected String name;
     protected String curriculum;
@@ -20,11 +16,13 @@ public class Student {
         this.startDate = startDate;
     }
 
-    public int returnSumOfCurriculumJavaDeveloperOrAQE() {
-        if (curriculum == "Java Developer") {
-            return curriculumClass.JavaDeveloperSumHours();
-        } else {
-            return curriculumClass.AQESumHours();
+    public int returnSumOfCurriculum() {
+        int sumOfCurriculum = 0;
+        if (curriculum.equals("Java Developer")) {
+            sumOfCurriculum = curriculumClass.javaDeveloperSumHours();
+        } else if (curriculum.equals("AQE")) {
+            sumOfCurriculum = curriculumClass.aqeSumHours();
         }
+        return sumOfCurriculum;
     }
 }
